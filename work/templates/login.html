@@ -1,0 +1,85 @@
+{% extends 'baes.html' %}
+
+
+
+{% block title %}
+登陆页
+{% endblock %}
+
+
+
+
+
+{% block link %}
+
+
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/static/css/docs.min.css" rel="stylesheet">
+<!-- Custom Theme files -->
+<!--theme style-->
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="/static/js/jquery.min.js"></script>
+
+<!--//theme style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- start menu -->
+<script src="/static/js/simpleCart.min.js"> </script>
+<!-- start menu -->
+<link href="/static/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="/static/js/memenu.js"></script>
+<script>$(document).ready(function(){$(".memenu").memenu();});</script>	
+<!-- /start menu -->
+
+
+{% endblock %}
+
+
+{% block body %}
+
+<!--header-->	
+<script src="/static/js/responsiveslides.min.js"></script>
+<script>  
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: false,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: false,
+      });
+    });
+  </script>
+
+<div class="login_sec">
+	 <div class="container">
+		 <ol class="breadcrumb">
+		  <li><a href="{% url 'lamp:index' %}">首页</a></li>
+		  <li class="active">登陆</li>
+		 </ol>
+		 <h2>登陆</h2>
+		 <div class="col-md-6 log">			 
+				 <p>欢迎,请进入下一页后继续</p>
+				 <p>如果您之前已经登陆过我们的网站, <span>请点击这里</span></p>
+				 <form action="{% url 'lamp:login' %}" method="post">
+					 {% csrf_token %}
+					 <h5>用户名</h5>
+					 <input type="text"  name="username" placeholder="请输入用户名" autocomplete="off">
+					 <h5>密码</h5>
+					 <input type="password"  name="pwd" placeholder="请输入密码">
+					 <input type="submit" value="登陆">
+						<a class="acount-btn" href="{% url 'lamp:accountl' %}">创建一个账户</a>
+				 </form>
+				 <a href="#">忘记密码 ?</a>
+					
+		 </div>	
+				
+		 <div class="clearfix"></div>
+	 </div>
+</div>
+<!---->
+
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends 'baes.html' %}
+
+{% block title %}
+首页
+{% endblock %}
+
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+
+<!-- Custom Theme files -->
+<!--theme style-->
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="/static/js/jquery.min.js"></script>
+
+<!--//theme style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="/static/application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- start menu -->
+<script src="/static/js/simpleCart.min.js"> </script>
+<!-- start menu -->
+<link href="/static/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+<script  src="/static/js/memenu.js"></script>
+<script>$(document).ready(function(){$(".memenu").memenu();});</script>	
+<!-- /start menu -->
+
+
+
+
+<!--header-->	
+<script src="/static/js/responsiveslides.min.js"></script>
+<script>  
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: false,
+      });
+    });
+  </script>
+
+
+
+{% block body %}
+
+
+
+<!---->
+
+<!--三张轮播图-->
+<div class="slider">
+	  <div class="callbacks_container">
+	     <ul class="rslides" id="slider">
+	         <li>
+				 <div class="banner1">				  
+					  <div class="banner-info">
+					  <h3>Morbi lacus hendrerit efficitur.</h3>
+					  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit. consectetur adipiscing elit.</p>
+					  </div>
+				 </div>
+	         </li>
+	         <li>
+				 <div class="banner2">
+					 <div class="banner-info">
+					 <h3>Phasellus elementum tincidunt.</h3>
+					 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit. consectetur adipiscing elit.</p>
+					 </div>
+				 </div>
+			 </li>
+	         <li>
+	             <div class="banner3">
+	        	 <div class="banner-info">
+	        	 <h3>Maecenas interposuere volutpat.</h3>
+	          	 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit. consectetur adipiscing elit.</p>
+				 </div>
+				 </div>
+	         </li>
+	      </ul>
+	  </div>
+  </div>
+<!---->
+<script src="/static/js/bootstrap.js"> </script>
+<!--动态所有商品游览-->
+<div class="items">
+	 <div class="container">
+
+		 <div class="items-sec">
+			 {% if products %}
+				{% for product in products %}
+				 <div class="col-md-3 feature-grid">
+				 <a href="product.html"><img src="/static/media/{{ product.img }}" alt=""/>
+					 <div class="arrival-info">
+						 <h4>{{ product.name }}</h4>
+						 <p>{{ product.price }}</p>
+
+					 </div>
+					 <div class="viw">
+						<a href="{% url 'lamp:single' product.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>视图</a>
+					 </div>
+				  </a>
+			 </div>
+				{% endfor %}
+			 {% endif %}
+			 <div class="clearfix"></div>
+		 </div>
+
+		 </div>
+	 </div>
+</div>
+<!---->
+<!--折扣-->
+<div class="offers">
+	 <div class="container">
+	 <h3>季末销售</h3>
+	 <div class="offer-grids">
+		 <div class="col-md-6 grid-left">
+			 <a href="#"><div class="offer-grid1">
+				 <div class="ofr-pic">
+					 <img src="images/ofr2.jpeg" class="img-responsive" alt=""/>
+				 </div>
+				 <div class="ofr-pic-info">
+					 <h4>应急灯 <br>和  Led 照明灯</h4>
+					 <span>高达 60% 的折扣</span>
+					 <p>现在去购买</p>
+				 </div>
+				 <div class="clearfix"></div>
+			 </div></a>
+		 </div>
+		 <div class="col-md-6 grid-right">
+			 <a href="#"><div class="offer-grid2">				 
+				 <div class="ofr-pic-info2">
+					 <h4>平面折扣</h4>
+					 <span>最高 30% 的折扣</span>
+					 <h5>户外门灯</h5>
+					 <p>现在去购买</p>
+				 </div>
+				 <div class="ofr-pic2">
+					 <img src="images/ofr3.jpg" class="img-responsive" alt=""/>
+				 </div>
+				 <div class="clearfix"></div>
+			 </div></a>
+		 </div>
+		 <div class="clearfix"></div>
+	 </div>
+	 </div>
+</div>
+<!---->
+<div class="subscribe">
+	 <div class="container">
+		 <h3>Newsletter</h3>
+		 <form>
+			 <input type="text" class="text" value="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}">
+			 <input type="submit" value="Subscribe">
+		 </form>
+	 </div>
+</div>
+<!---->
+
+{% endblock %}

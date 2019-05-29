@@ -1,0 +1,194 @@
+{% extends 'baes.html' %}
+
+{% block title %}
+注册页
+{% endblock %}
+
+
+
+{% block link %}
+
+
+
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/static/css/docs.min.css" rel="stylesheet">
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="/static/js/jquery.min.js"></script>
+
+<!--//theme style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- start menu -->
+<script src="/static/js/simpleCart.min.js"> </script>
+<!-- start menu -->
+<link href="/static/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="/static/js/memenu.js"></script>
+<script>$(document).ready(function(){$(".memenu").memenu();});</script>	
+<!-- /start menu -->
+
+{% endblock %}
+
+{% block body %}
+
+
+
+<!--header-->	
+<script src="/static/js/responsiveslides.min.js"></script>
+<script>  
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: false,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: false,
+      });
+    });
+  </script>
+
+
+
+
+
+<div class="container">
+	  <ol class="breadcrumb">
+		  <li><a href="index.html">首页</a></li>
+		  <li class="active">注册</li>
+		 </ol>
+	 <div class="registration">
+		 <div class="registration_left">
+			 <h2>新用户 ? <span>创建一个用户 </span></h2>
+			 <!-- [if IE] 
+				< link rel='stylesheet' type='text/css' href='ie.css'/>  
+			 [endif] -->  
+			  
+			 <!-- [if lt IE 7]>  
+				< link rel='stylesheet' type='text/css' href='ie6.css'/>  
+			 <! [endif] -->  
+			 <script>
+				(function() {
+			
+				// Create input element for testing
+				var inputs = document.createElement('input');
+				
+				// Create the supports object
+				var supports = {};
+				
+				supports.autofocus   = 'autofocus' in inputs;
+				supports.required    = 'required' in inputs;
+				supports.placeholder = 'placeholder' in inputs;
+			
+				// Fallback for autofocus attribute
+				if(!supports.autofocus) {
+					
+				}
+				
+				// Fallback for required attribute
+				if(!supports.required) {
+					
+				}
+			
+				// Fallback for placeholder attribute
+				if(!supports.placeholder) {
+					
+				}
+				
+				// Change text inside send button on submit
+				var send = document.getElementById('register-submit');
+				if(send) {
+					send.onclick = function () {
+						this.innerHTML = '...Sending';
+					}
+				}
+			
+			 })();
+			 </script>
+			 <div class="registration_form">
+			 <!-- Form -->
+				 <p>{{ a }}</p>
+				<form action="{% url 'lamp:accountl' %}" method="post">
+					{% csrf_token %}
+					<div>
+						<label>
+							<input placeholder="用户名字" type="text" tabindex="1" name="name" autocomplete="off">
+						</label>
+					</div>
+
+					<div>
+						<label>
+							<input placeholder="邮箱" type="email" tabindex="3" name="email">
+						</label>
+					</div>
+					<div>
+						<label>
+							<input placeholder="电话" type="text" tabindex="3" name="phone">
+						</label>
+					</div>					
+						<div class="sky_form1">
+							<ul>
+								<li><label class="radio left"><input type="radio" name="radio" checked="" value="男"><i></i>男</label></li>
+								<li><label class="radio"><input type="radio" name="radio" value="女"><i></i>女</label></li>
+							</ul>
+							<div class="clearfix"></div>
+						</div>					
+					<div>
+						<label>
+							<input placeholder="请输入密码" type="password" tabindex="4" name="pwd">
+						</label>
+					</div>						
+					<div>
+						<label>
+							<input placeholder="请重新输入密码" type="password" tabindex="4">
+						</label>
+					</div>	
+					<div>
+						<input type="submit" value="现在注册" id="register-submit">
+						<!--<p>aaaaa</p>-->
+
+
+
+
+					</div>
+					<div class="sky-form">
+						<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i> 我同意条款和条件 &nbsp;<a class="terms" href="#"> 的服务条条款</a> </label>
+					</div>
+				</form>
+				<!-- /Form -->
+			 </div>
+		 </div>
+		 <div class="registration_left">
+			 <h2>现有用户登陆</h2>
+			 <div class="registration_form">
+			 <!-- Form -->
+				<form action="{% url 'lamp:login' %}" method="post">
+					{% csrf_token %}
+					<div>
+						<label>
+							<input placeholder="邮箱" type="email" tabindex="3" required name="username">
+						</label>
+					</div>
+					<div>
+						<label>
+							<input placeholder="密码" type="password" tabindex="4" required name="pwd">
+						</label>
+					</div>						
+					<div>
+						<input type="submit" value="登陆">
+					</div>
+					<div class="forget">
+						<a href="#">忘记密码</a>
+					</div>
+				</form>
+			 <!-- /Form -->
+			 </div>
+		 </div>
+		 <div class="clearfix"></div>
+	 </div>
+</div>
+<!---->
+{% endblock %}
