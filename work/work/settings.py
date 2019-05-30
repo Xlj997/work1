@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'dtxx$)540=^gp0z%c&re=t^+$efp%emtkrzv2276v&#9sd%(8='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -44,7 +44,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -131,3 +131,5 @@ EMAIL_PORT = 25 #发件箱的SMTP服务器端口
 EMAIL_HOST_USER = '18137128152@163.com' #发送邮件的邮箱地址
 EMAIL_HOST_PASSWORD = 'qikuedu'
 DEFAULT_FROM_EMAIL = 'zzy0371 <18137128152@163.com>'
+
+STATIC_ROOT = '/root/home/work/work1/work/staticroot'
