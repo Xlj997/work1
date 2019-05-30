@@ -2,7 +2,23 @@ from django.db import models
 
 # Create your models here.
 
+# 分类
+class Classification(models.Model):
 
+    # 分类名称
+    name = models.CharField(max_length=30, verbose_name='分类名称')
+
+    # 产品外键
+    # product = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+    parentClass = models.ForeignKey('self',on_delete=models.CASCADE,null=True,blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = '分类'
+        verbose_name_plural = verbose_name
 
 # 产品
 class Product(models.Model):
@@ -35,6 +51,8 @@ class Product(models.Model):
 
     # 已卖出数量
     number = models.IntegerField(default=0, verbose_name='已卖出数量')
+
+    classfi = models.ForeignKey(Classification,on_delete=models.CASCADE)
 
 
     def __str__(self):
@@ -71,21 +89,7 @@ class ShoppingCart(models.Model):
         verbose_name = '购物车'
         verbose_name_plural = verbose_name
 
-# 分类
-class Classification(models.Model):
 
-    # 分类名称
-    name = models.CharField(max_length=30, verbose_name='分类名称')
-
-    # 产品外键
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = '分类'
-        verbose_name_plural = verbose_name
 
 # 账户
 class Account(models.Model):
@@ -110,6 +114,9 @@ class Account(models.Model):
 
     # 购物车外键
     shoppingcart = models.ForeignKey(ShoppingCart, on_delete=models.CASCADE)
+
+    # 激活 0为未激活 1为激活
+    activation = models.CharField(max_length=30,default=0)
 
     def __str__(self):
         return self.name

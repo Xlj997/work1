@@ -66,6 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 <p>如果您之前已经登陆过我们的网站, <span>请点击这里</span></p>
 				 <form action="{% url 'lamp:login' %}" method="post">
 					 {% csrf_token %}
+					 {{ a }}
 					 <h5>用户名</h5>
 					 <input type="text"  name="username" placeholder="请输入用户名" autocomplete="off">
 					 <h5>密码</h5>
@@ -83,3 +84,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!---->
 
 {% endblock %}
+
